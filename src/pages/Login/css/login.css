@@ -38,6 +38,7 @@
 
 .content .description {
   text-align: justify;
+  font-weight: 300;
   padding: 1rem;
   height: 45%;
   margin: 0;
@@ -56,4 +57,5 @@
   border-top: 1px solid #000;
   grid-area: footer;
   padding: 0;
+  font-weight: 200;
 }
