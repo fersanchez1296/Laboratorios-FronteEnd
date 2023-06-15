@@ -40,13 +40,17 @@
   text-align: justify;
   font-weight: 300;
   padding: 1rem;
-  height: 45%;
+  height: 35%;
   margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .content .login-form{
     height: auto;
-    margin: 0 1rem;
+    margin: 0 1.5rem;
+    
 }
 
 .content .login-form form{
@@ -58,4 +62,23 @@
   grid-area: footer;
   padding: 0;
   font-weight: 200;
+}
+
+
+input.input-error{
+  color: red;
+  font-weight: 900;
+  border-color: #ff3d00 !important;
+}
+
+input.input-correct{
+  color:#1b5e20;
+  border-color: 5px solid #1b5e20 !important;
+}
+
+.error {
+  color: #fc8181;
+  font-size: 0.75rem;
+  text-align: left;
+  margin-top: 0.25rem;
 }
