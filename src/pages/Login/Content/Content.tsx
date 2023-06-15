@@ -1,4 +1,4 @@
-import { Form, Formik, useField } from "formik";
+import { Form, Formik} from "formik";
 import { getUser } from "../../../services";
 import { useDispatch } from "react-redux";
 import { createUser } from "../../../redux/states/user";
@@ -17,13 +17,6 @@ interface FormValues {
 const Content: React.FC = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const lg = async () => {
-    try {
-      const result = await getUser("219341143");
-      dispatch(createUser(result[0]));
-      navigate(`/${PrivateRoutes.PRIVATE}`, { replace: true });
-    } catch (error) {}
-  };
 
   const initialValues: FormValues = { user: "", password: "" };
   return (
@@ -39,9 +32,16 @@ const Content: React.FC = () => {
           initialValues={initialValues}
           enableReinitialize={true}
           validationSchema={login}
-          onSubmit={(values) => {
-            console.log(values);
-          }}
+          onSubmit={async (values) => {
+            const data = values
+            try {
+              const result = await getUser(data);
+              console.log(result)
+              dispatch(createUser(result.data));
+              navigate(`/${PrivateRoutes.PRIVATE}`, { replace: true });
+            } catch (error) {}
+          }
+          }
         >
           {({ handleSubmit, handleChange, isSubmitting, values }) => (
             <Form onSubmit={handleSubmit}>
